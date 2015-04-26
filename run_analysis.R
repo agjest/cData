@@ -38,16 +38,8 @@ totRed <- tot[,c(1, dim(tot)[2],colM, colS)]
 #name the cols, use () in col names. Have to enclose the variables in "" when used
 #but a good thing to keep them like the originals
 names(totRed) <- c("subject","activity",as.character(features[c(colM,colS),2]))
-tmp <- as.dataframe(matrix(nrow=11880,ncol=4))
-for(i in 3:5){
-tmp[((i-3)*180)+1:((i-3)*180)+180:] <- aggregate(totRed[,i],list(totRed$subject,totRed$activity),mean))
+tmp <- as.data.frame(matrix(nrow=0,ncol=4))
+for(i in 3:68){
+tmp <- rbind(tmp,cbind(aggregate(totRed[,i],list(totRed$subject,totRed$activity),mean),rep(names(totRed)[i],180)))
 }
-
-(((i-3)*180)+1)=180i - 
-  
-1:180
-181:361
-
-f <- rep(names(totRed)[i],180)
-tmp <- cbind(tmp,f)
-rbind
+# tmp 11880 rows 4 variables
