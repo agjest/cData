@@ -33,3 +33,7 @@ colM <- grep("mean()",features[,2],fixed = TRUE)
 colS <- grep("std()",features[,2],fixed = TRUE)
 totRed <- tot[,c(1, colM, colS, 564)]
 names(totRed) <- c("subject",features[c(colM,colS),2],"activity")
+
+
+
+
